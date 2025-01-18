@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suivi des Dépenses</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Bienvenue sur l'Application de Suivi des Dépenses</h1>
+        <p>Suivez vos finances personnelles et obtenez des conseils pour mieux gérer vos dépenses.</p>
+
+        <label for="currency">Choisir la devise:</label>
+        <select id="currency">
+            <option value="EUR">Euro (€)</option>
+            <option value="USD">Dollar ($)</option>
+            <option value="GBP">Livre (£)</option>
+            <option value="TND">Dinar Tunisien (TND)</option>
+        </select>
+
+        <label for="language">Choisir la langue:</label>
+        <select id="language">
+            <option value="fr">Français</option>
+            <option value="en">English</option>
+        </select>
+
+        <a href="login.html" class="btn">Se connecter</a>
+        <a href="signup.html" class="btn">Créer un compte</a>
+        <a href="dashboard.html" class="btn">Accéder au Dashboard</a>
+    </div>
+
+    <script>
+        // Code pour la gestion du changement de langue et de devise
+        document.getElementById('language').addEventListener('change', function() {
+            // Ici, vous pouvez ajouter du code pour changer la langue de l'interface
+        });
+        
+        document.getElementById('currency').addEventListener('change', function() {
+            // Ici, vous pouvez ajouter du code pour changer la devise utilisée dans l'application
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer un Compte</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Créer un Compte</h1>
+
+        <form id="signup-form">
+            <label for="username">Nom d'utilisateur:</label>
+            <input type="text" id="username" placeholder="Entrez votre nom d'utilisateur">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Entrez votre email">
+
+            <label for="password">Mot de passe:</label>
+            <input type="password" id="password" placeholder="Entrez votre mot de passe">
+
+            <button type="submit">Créer un compte</button>
+        </form>
+
+        <a href="login.html">Déjà un compte? Se connecter</a>
+    </div>
+
+    <script>
+        document.getElementById('signup-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Code pour créer un compte utilisateur et enregistrer les informations
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Connexion</h1>
+
+        <form id="login-form">
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Entrez votre email">
+
+            <label for="password">Mot de passe:</label>
+            <input type="password" id="password" placeholder="Entrez votre mot de passe">
+
+            <button type="submit">Se connecter</button>
+        </form>
+
+        <a href="signup.html">Pas encore de compte? Créer un compte</a>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Code pour connecter un utilisateur
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Suivi des Dépenses</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="notifications.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Votre Suivi Financier</h1>
+        
+        <div class="input-section">
+            <label for="salary">Salaire Mensuel:</label>
+            <input type="number" id="salary" placeholder="Entrez votre salaire">
+        </div>
+
+        <div class="input-section">
+            <label for="revenue">Revenus supplémentaires (facultatif):</label>
+            <input type="number" id="revenue" placeholder="Entrez vos revenus supplémentaires">
+        </div>
+
+        <h3>Liste des Dépenses</h3>
+        <div id="expense-list">
+            <input type="text" id="expense-name" placeholder="Nom de la dépense">
+            <input type="number" id="expense-amount" placeholder="Montant">
+            <button onclick="addExpense()">Ajouter une Dépense</button>
+        </div>
+        <ul id="expenses"></ul>
+
+        <h3>Liste des Revenus</h3>
+        <div id="revenue-list">
+            <input type="text" id="revenue-name" placeholder="Nom du revenu">
+            <input type="number" id="revenue-amount" placeholder="Montant">
+            <button onclick="addRevenue()">Ajouter un Revenu</button>
+        </div>
+        <ul id="revenues"></ul>
+
+        <button onclick="updateDashboard()">Mettre à Jour</button>
+
+        <div class="charts">
+            <canvas id="financeChart"></canvas>
+        </div>
+
+        <div id="result"></div>
+    </div>
+
+</body>
+</html>
